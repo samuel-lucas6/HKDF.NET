@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>HkdfTest</RootNamespace>
+    <AssemblyName>HKDF.NET.Test</AssemblyName>
+    <Authors>Samuel Lucas</Authors>
+    <Description>The RFC 5869 Appendix A. Test Vectors (SHA-256).</Description>
+    <Copyright>Copyright (c) 2021 Samuel Lucas</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/samuel-lucas6/HKDF.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/samuel-lucas6/HKDF.NET</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sodium.Core" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HKDF.NET">
+      <HintPath>..\HKDF.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
