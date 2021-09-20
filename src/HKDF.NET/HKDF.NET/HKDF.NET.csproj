@@ -10,7 +10,13 @@
     <PackageProjectUrl>https://github.com/samuel-lucas6/HKDF.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/samuel-lucas6/HKDF.NET</RepositoryUrl>
     <RootNamespace>Hkdf</RootNamespace>
-    <AssemblyName>HKDF.NET</AssemblyName>
+    <AssemblyName>HKDF</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
 </Project>
