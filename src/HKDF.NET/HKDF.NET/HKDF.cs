@@ -20,13 +20,13 @@ using System.Security.Cryptography;
     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 */
 
-namespace Hkdf
+namespace HkdfDotNet
 {
-    public static class HKDF
+    public static class Hkdf
     {
         public static byte[] DeriveKey(HashAlgorithmName hashAlgorithmName, byte[] inputKeyingMaterial, int outputLength, byte[] salt = null, byte[] info = null)
         {

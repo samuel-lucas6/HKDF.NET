@@ -23,5 +23,5 @@ byte[] salt = SecureRandom.GetBytes(saltLength);
 byte[] info = Encoding.UTF8.GetBytes(context);
 
 // Perform HKDF Expand and Extract to derive a subkey
-byte[] subkey = HKDF.DeriveKey(HashAlgorithmName.SHA512, inputKeyingMaterial, outputLength, salt, info);
+byte[] subkey = Hkdf.DeriveKey(HashAlgorithmName.SHA512, inputKeyingMaterial, outputLength, salt, info);
 ```
