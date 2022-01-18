@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Security.Cryptography;
 using Sodium;
 using HkdfDotNet;
 
 /*
     HKDF.NET: A .NET implementation of HKDF.
-    Copyright (c) 2021 Samuel Lucas
+    Copyright (c) 2021-2022 Samuel Lucas
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the "Software"), to deal in
@@ -31,8 +30,8 @@ namespace HkdfTest
 {
     class Program
     {
-        private const string _success = "Success";
-        private const string _fail = "Fail";
+        private const string Success = "Success";
+        private const string Fail = "Fail";
 
         static void Main(string[] _)
         {
@@ -40,9 +39,7 @@ namespace HkdfTest
             TestCase1();
             TestCase2();
             TestCase3();
-            Console.WriteLine();
-            // 256-bit input keying material, 128-bit output length, 256-bit salt, 256-bit info
-            Benchmark();
+            Console.ReadLine();
         }
 
         private static void TestCase1()
@@ -55,10 +52,10 @@ namespace HkdfTest
             string expectedPrk = "077709362c2e32df0ddc3f0dc47bba6390b6c73bb50f9c3122ec844ad7c2b3e5";
             string expectedOkm = "3cb25f25faacd57a90434f64d0362f2a2d2d0a90cf1a5a4c5db02d56ecc4c5bf34007208d5b887185865";
             string actualPrk = Utilities.BinaryToHex(Hkdf.Extract(HashAlgorithmName.SHA256, inputKeyingMaterial, salt));
-            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, salt, info));
+            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, info, salt));
 
-            Console.WriteLine($"Test 1.1: {(expectedPrk == actualPrk ? _success : _fail)}");
-            Console.WriteLine($"Test 1.2: {(expectedOkm == actualOkm ? _success : _fail)}");
+            Console.WriteLine($"Test 1.1: {(expectedPrk == actualPrk ? Success : Fail)}");
+            Console.WriteLine($"Test 1.2: {(expectedOkm == actualOkm ? Success : Fail)}");
         }
 
         private static void TestCase2()
@@ -71,10 +68,10 @@ namespace HkdfTest
             string expectedPrk = "06a6b88c5853361a06104c9ceb35b45cef760014904671014a193f40c15fc244";
             string expectedOkm = "b11e398dc80327a1c8e7f78c596a49344f012eda2d4efad8a050cc4c19afa97c59045a99cac7827271cb41c65e590e09da3275600c2f09b8367793a9aca3db71cc30c58179ec3e87c14c01d5c1f3434f1d87";
             string actualPrk = Utilities.BinaryToHex(Hkdf.Extract(HashAlgorithmName.SHA256, inputKeyingMaterial, salt));
-            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, salt, info));
+            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, info, salt));
 
-            Console.WriteLine($"Test 2.1: {(expectedPrk == actualPrk ? _success : _fail)}");
-            Console.WriteLine($"Test 2.2: {(expectedOkm == actualOkm ? _success : _fail)}");
+            Console.WriteLine($"Test 2.1: {(expectedPrk == actualPrk ? Success : Fail)}");
+            Console.WriteLine($"Test 2.2: {(expectedOkm == actualOkm ? Success : Fail)}");
         }
 
         private static void TestCase3()
@@ -87,28 +84,10 @@ namespace HkdfTest
             string expectedPrk = "19ef24a32c717b167f33a91d6f648bdf96596776afdb6377ac434c1c293ccb04";
             string expectedOkm = "8da4e775a563c18f715f802a063c5a31b8a11f5c5ee1879ec3454e5f3c738d2d9d201395faa4b61a96c8";
             string actualPrk = Utilities.BinaryToHex(Hkdf.Extract(HashAlgorithmName.SHA256, inputKeyingMaterial, salt));
-            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, salt, info));
+            string actualOkm = Utilities.BinaryToHex(Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, info, salt));
 
-            Console.WriteLine($"Test 3.1: {(expectedPrk == actualPrk ? _success : _fail)}");
-            Console.WriteLine($"Test 3.2: {(expectedOkm == actualOkm ? _success : _fail)}");
-        }
-
-        private static void Benchmark()
-        {
-            var stopwatch = Stopwatch.StartNew();
-            stopwatch.Stop();
-            const int parametersLength = 32;
-            byte[] inputKeyingMaterial = SodiumCore.GetRandomBytes(parametersLength);
-            byte[] salt = SodiumCore.GetRandomBytes(parametersLength);
-            byte[] info = SodiumCore.GetRandomBytes(parametersLength);
-            int outputLength = 16;
-            for (int i = 0; i < 10; i++)
-            {
-                stopwatch.Restart();
-                byte[] key = Hkdf.DeriveKey(HashAlgorithmName.SHA256, inputKeyingMaterial, outputLength, salt, info);
-                stopwatch.Stop();
-                Console.WriteLine($"Time {i + 1}: {stopwatch.ElapsedTicks} ticks");
-            }
+            Console.WriteLine($"Test 3.1: {(expectedPrk == actualPrk ? Success : Fail)}");
+            Console.WriteLine($"Test 3.2: {(expectedOkm == actualOkm ? Success : Fail)}");
         }
     }
 }

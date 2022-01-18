@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>HkdfTest</RootNamespace>
     <AssemblyName>HkdfTest</AssemblyName>
     <Authors>Samuel Lucas</Authors>
     <Description>The RFC 5869 Appendix A. Test Vectors (SHA-256).</Description>
-    <Copyright>Copyright (c) 2021 Samuel Lucas</Copyright>
+    <Copyright>Copyright (c) 2021-2022 Samuel Lucas</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/samuel-lucas6/HKDF.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/samuel-lucas6/HKDF.NET</RepositoryUrl>
@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="HKDF.NET">
-      <HintPath>..\HKDF.NET.dll</HintPath>
+    <Reference Include="HkdfDotNet">
+      <HintPath>HkdfDotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
 
