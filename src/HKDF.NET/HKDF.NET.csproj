@@ -2,22 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Copyright (c) 2021-2022 Samuel Lucas</Copyright>
-    <Description>A .NET implementation of HKDF.</Description>
-    <Authors>Samuel Lucas</Authors>
-    <PackageProjectUrl>https://github.com/samuel-lucas6/HKDF.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/samuel-lucas6/HKDF.NET</RepositoryUrl>
-    <RootNamespace>HkdfDotNet</RootNamespace>
-    <AssemblyName>HkdfDotNet</AssemblyName>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
     <Version>1.0.1</Version>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>hkdf hmac sha256 sha384 sha512 sha2 hmac-sha2 hmac-sha256 hmac-sha384 hmac-sha512 kdf key-derivation derivation input-keying-material output-keying-material salt info context shared-secret key-exchange cryptography crypto</PackageTags>
+    <Authors>Samuel Lucas</Authors>
+    <Description>A .NET implementation of HKDF.</Description>
+    <Copyright>Copyright (c) 2021-2022 Samuel Lucas</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <PackageProjectUrl>https://github.com/samuel-lucas6/HKDF.NET</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/samuel-lucas6/HKDF.NET</RepositoryUrl>
+    <PackageTags>hkdf kdf hmac sha256 sha384 sha512 cryptography crypto</PackageTags>
   </PropertyGroup>
 
 </Project>
